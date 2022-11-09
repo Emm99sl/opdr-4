@@ -137,7 +137,7 @@ pred_little = little.assign(Profit_log = model.predict(little))
 # In[3]:
 
 
-st.title("Visual Analytics Eindpresentatie_test ")
+st.title("Visual Analytics Eindpresentatie ")
 
 st.subheader("1D Inspecties")
 
