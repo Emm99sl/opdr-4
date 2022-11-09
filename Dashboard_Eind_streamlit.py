@@ -145,7 +145,7 @@ with st.expander('Samengevoegde dataframes'):
 tab1, tab2, tab3, tab4, tab5 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspecties', 'Model', 'Bronverwijzing'])
                      
 with tab1:
-       st.subheader("1D Inspecties")
+       st.subheader("1D Inspectie: 1")
        plot_code0 = '''fig0 = px.histogram(df, x = "jaar_order", y = "Profit" ,title = "Histogram: Winst per jaar")
        fig0.update_xaxes(title_text = "Tijd in jaren")
        fig0.update_yaxes(title_text = "Winst in $")
@@ -156,7 +156,8 @@ with tab1:
        fig0.update_xaxes(title_text = "Tijd in jaren")
        fig0.update_yaxes(title_text = "Winst in $")
        st.plotly_chart(fig0)
-
+       
+       st.subheader("1D Inspectie: 2")
        plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
        fig2.update_xaxes(title_text = "Categorieën Segment")
        fig2.update_yaxes(title_text = "Aantallen")
@@ -167,7 +168,8 @@ with tab1:
        fig2.update_xaxes(title_text = "Categoriën Segment")
        fig2.update_yaxes(title_text = "Aantallen")
        st.plotly_chart(fig2)
-
+       
+       st.subheader("1D Inspectie: 3")
        plot_code3 = '''fig3 = go.Figure()
        fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
        fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
@@ -186,7 +188,8 @@ with tab1:
        fig3.update_xaxes(title = 'Aantal kosten')
        fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
        st.plotly_chart(fig3)
-
+       
+       st.subheader("1D Inspectie: 4")
        plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 25)
        fig4.update_xaxes(title_text = "Winst in $")
        fig4.update_yaxes(title_text = "Aantal Superstore")
@@ -201,6 +204,7 @@ with tab1:
 with tab2:
        st.subheader("2D Inspecties")
        
+       st.subheader("2D Inspectie: 1")
        plot_code5 = '''fig5 = go.Figure()
        fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
        fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Sales'], mode = 'markers', name = "Corporate", visible = False))
@@ -236,6 +240,7 @@ with tab2:
        fig5.update_yaxes(title_text="Winst in $")
        st.plotly_chart(fig5)
        
+       st.subheader("2D Inspectie: 2")
        plot_code6 = '''fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
        #titels/labels aanmaken
        fig5.update_layout(title = "Scatterplot kosten tegenover sales")
@@ -253,6 +258,7 @@ with tab2:
 
 #KAART 1
 with tab3:
+       st.subheader("Kaart visualisatie: 1")
        def color_producer(type):
               if type == 'Consumer':
                      return 'green'
@@ -278,8 +284,9 @@ with tab3:
        folium_static(m)
        
        st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
-             
-     
+       
+          
+       st.subheader("Kaart visualisatie: 2")
 
 
        def color_producer2(type):
@@ -311,6 +318,7 @@ with tab3:
        st.text("rood: verlies, zwart: 0<= winst <=10, blauw: 10< winst <=20, geel: 20< winst <= 30, oranje: 30< winst <= 40, groen: winst > 40")
 
 with tab4:
+       st.subheader("Visualisatie model")
        #Figuur maken van model
        fig7 = go.Figure()
        #Toevoegen van traces van de verschillende stappen in het model 
