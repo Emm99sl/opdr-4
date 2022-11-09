@@ -249,9 +249,6 @@ with tab3:
               marker = folium.CircleMarker(location = location, popup = popup, color = color)
               marker.add_to(m)
     
-       m = add_categorical_legend(m, 'Segment',
-                             colors = ['green', 'red', 'blue'],
-                           labels = ['Consumer', 'Corporate', 'Home Office'])
        folium_static(m)
 
 
@@ -278,11 +275,7 @@ with tab3:
               popup = (str(mp_values['City']))
               color = color_producer2(mp_values['Profit'])
               marker = folium.CircleMarker(location = location, popup = popup, color = color)
-              marker.add_to(m2)
-              
-       m2 = add_categorical_legend(m2, 'Winst',
-                             colors = ['red', 'black', 'blue', 'yellow', 'orange', 'green'],
-                           labels = ['verlies (<0)', '0 <= winst <= 10', '10 < winst <= 20', '20 < winst <= 30','30 < winst <= 40', '> 40']) 
+              marker.add_to(m2) 
        folium_static(m2)
 
 with tab4:
