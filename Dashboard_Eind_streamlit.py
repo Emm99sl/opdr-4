@@ -90,7 +90,8 @@ corporate = filter_df(df, 'Segment', 'Corporate')
 home_office = filter_df(df, 'Segment', 'Home Office')
 
 #Dataframe
-st.dataframe(df)
+with st.sidebar:
+       st.dataframe(df)
 
 #Outliers droppen
 df = drop_outlier(df, 'Profit')
