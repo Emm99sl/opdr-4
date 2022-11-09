@@ -90,10 +90,12 @@ corporate = filter_df(df, 'Segment', 'Corporate')
 home_office = filter_df(df, 'Segment', 'Home Office')
 
 #Dataframe
-st.sidebar.button('click me')
+with st.expander('Samengevoegde dataframes'):
+       st.write('De samengevoegde dataframes')
+       st.dataframe(df)
               
        
-st.dataframe(df)
+
 
 #Outliers droppen
 df = drop_outlier(df, 'Profit')
