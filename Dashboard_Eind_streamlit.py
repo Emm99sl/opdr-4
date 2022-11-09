@@ -89,6 +89,9 @@ consumer = filter_df(df, 'Segment', 'Consumer')
 corporate = filter_df(df, 'Segment', 'Corporate')
 home_office = filter_df(df, 'Segment', 'Home Office')
 
+#Dataframe
+st.dataframe(df)
+
 #Outliers droppen
 df = drop_outlier(df, 'Profit')
 df = drop_outlier(df, 'Sales')
@@ -221,7 +224,6 @@ fig6.update_yaxes(title_text="Kosten in $")
 st.plotly_chart(fig6)
 
 #KAART 1
-
 def color_producer(type):
     if type == 'Consumer':
         return 'green'
