@@ -145,85 +145,85 @@ with st.expander('Samengevoegde dataframes'):
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspectie 1', 'Geospatiale Inspectie 2', 'Model', 'Bronverwijzing'])
                      
 with tab1:
-                     st.subheader("1D Inspecties")
-                     plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
-                     fig0.update_xaxes(title_text = "Staten US")
-                     fig0.update_yaxes(title_text = "Winst in $")
-                     fig0.show() '''
-                     st.code(plot_code0)
+       st.subheader("1D Inspecties")
+       plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
+       fig0.update_xaxes(title_text = "Staten US")
+       fig0.update_yaxes(title_text = "Winst in $")
+       fig0.show() '''
+       st.code(plot_code0)
        
-                     fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
-                     fig0.update_xaxes(title_text = "Tijd in jaren")
-                     fig0.update_yaxes(title_text = "Winst in $")
-                     st.plotly_chart(fig0)
+       fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
+       fig0.update_xaxes(title_text = "Tijd in jaren")
+       fig0.update_yaxes(title_text = "Winst in $")
+       st.plotly_chart(fig0)
 
-                     plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
-                     fig2.update_xaxes(title_text = "Categoriën Segment")
-                     fig2.update_yaxes(title_text = "Aantallen")
-                     fig2.show()'''
-                     st.code(plot_code2)
+       plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
+       fig2.update_xaxes(title_text = "Categoriën Segment")
+       fig2.update_yaxes(title_text = "Aantallen")
+       fig2.show()'''
+       st.code(plot_code2)
 
-                     fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
-                     fig2.update_xaxes(title_text = "Categoriën Segment")
-                     fig2.update_yaxes(title_text = "Aantallen")
-                     st.plotly_chart(fig2)
+       fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
+       fig2.update_xaxes(title_text = "Categoriën Segment")
+       fig2.update_yaxes(title_text = "Aantallen")
+       st.plotly_chart(fig2)
 
-                     plot_code3 = '''fig3 = go.Figure()
-                     fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
-                     fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
-                     fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
-                     fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
-                     fig3.update_xaxes(title = 'Aantal kosten')
-                     fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
-                     fig3.show()'''
-                     st.code(plot_code3)
+       plot_code3 = '''fig3 = go.Figure()
+       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
+       fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
+       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
+       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
+       fig3.update_xaxes(title = 'Aantal kosten')
+       fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
+       fig3.show()'''
+       st.code(plot_code3)
 
-                     fig3 = go.Figure()
-                     fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
-                     fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
-                     fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
-                     fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
-                     fig3.update_xaxes(title = 'Aantal kosten')
-                     fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
-                     st.plotly_chart(fig3)
+       fig3 = go.Figure()
+       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
+       fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
+       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
+       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
+       fig3.update_xaxes(title = 'Aantal kosten')
+       fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
+       st.plotly_chart(fig3)
 
-                     plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
-                     fig4.update_xaxes(title_text = "Winst in $")
-                     fig4.update_yaxes(title_text = "Aantal")
-                     fig4.show()'''
-                     st.code(plot_code4)
+       plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
+       fig4.update_xaxes(title_text = "Winst in $")
+       fig4.update_yaxes(title_text = "Aantal")
+       fig4.show()'''
+       st.code(plot_code4)
 
-                     fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
-                     fig4.update_xaxes(title_text = "Winst in $")
-                     fig4.update_yaxes(title_text = "Aantal")
-                     st.plotly_chart(fig4)
+       fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
+       fig4.update_xaxes(title_text = "Winst in $")
+       fig4.update_yaxes(title_text = "Aantal")
+       st.plotly_chart(fig4)
 
 with tab2:
-                     st.subheader("2D Inspecties")
+       st.subheader("2D Inspecties")
 
-                     fig5 = go.Figure()
-                     fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
-                     fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Sales'], mode = 'markers', name = "Corporate", visible = False))
-                     fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Sales'], mode = 'markers', name = 'Home Office', visible = False))
+       fig5 = go.Figure()
+       fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
+       fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Sales'], mode = 'markers', name = "Corporate", visible = False))
+       fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Sales'], mode = 'markers', name = 'Home Office', visible = False))
 
-                     #dropdownmenu aanmaken
-                     dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
-                    {"label":"Corporate", "method":"update","args":[{"visible":[False, True, False]},{"title":"Corporate"}]},
-                    {"label":"Home Office", "method":"update","args":[{"visible":[False,False,True]},{"title":"Home Office"}]}]
-                     #dropdownmenu toevoegen
-                     fig5.update_layout({"updatemenus":[{"type":"dropdown","x": 1.2,"y":0.9,"showactive":True,"active":0,"buttons": dropdown_buttons}]})
-                     #titels/labels aanmaken
-                     fig5.update_layout(title = "2D Inspectie: Scatterplot")
-                     fig5.update_xaxes(title_text="Discount")
-                     fig5.update_yaxes(title_text="Opbrengst")
-                     st.plotly_chart(fig5)
+       #dropdownmenu aanmaken
+       dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
+       {"label":"Corporate", "method":"update","args":[{"visible":[False, True, False]},{"title":"Corporate"}]},
+       {"label":"Home Office", "method":"update","args":[{"visible":[False,False,True]},{"title":"Home Office"}]}]
+       #dropdownmenu toevoegen
+       fig5.update_layout({"updatemenus":[{"type":"dropdown","x": 1.2,"y":0.9,"showactive":True,"active":0,"buttons": dropdown_buttons}]})
+       #titels/labels aanmaken
+       fig5.update_layout(title = "2D Inspectie: Scatterplot")
+       fig5.update_xaxes(title_text="Discount")
+       fig5.update_yaxes(title_text="Opbrengst")
+       st.plotly_chart(fig5)
 
-                     fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
-                     #titels/labels aanmaken
-                     fig5.update_layout(title = "2D Inspectie: Scatterplot tussen kosten en opbrengst")
-                     fig6.update_xaxes(title_text="Staten US")
-                     fig6.update_yaxes(title_text="Kosten in $")
-                     st.plotly_chart(fig6)
+       fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
+       #titels/labels aanmaken
+       fig5.update_layout(title = "2D Inspectie: Scatterplot tussen kosten en opbrengst")
+       fig6.update_xaxes(title_text="Staten US")
+       fig6.update_yaxes(title_text="Kosten in $")
+       st.plotly_chart(fig6)
 
 #KAART 1
 def color_producer(type):
@@ -233,107 +233,6 @@ def color_producer(type):
               return 'red'
        elif type == 'Home Office':
               return 'blue'
-    
-    
-def add_categorical_legend(folium_map, title, colors, labels):
-    if len(colors) != len(labels):
-        raise ValueError("colors and labels must have the same length.")
-
-    color_by_label = dict(zip(labels, colors))
-    
-    legend_categories = ""     
-    for label, color in color_by_label.items():
-        legend_categories += f"<li><span style='background:{color}'></span>{label}</li>"
-        
-    legend_html = f"""
-    <div id='maplegend' class='maplegend'>
-      <div class='legend-title'>{title}</div>
-      <div class='legend-scale'>
-        <ul class='legend-labels'>
-        {legend_categories}
-        </ul>
-      </div>
-    </div>
-    """
-    script = f"""
-        <script type="text/javascript">
-        var oneTimeExecution = (function() {{
-                    var executed = false;
-                    return function() {{
-                        if (!executed) {{
-                             var checkExist = setInterval(function() {{
-                                       if ((document.getElementsByClassName('leaflet-top leaflet-right').length) || (!executed)) {{
-                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].style.display = "flex"
-                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].style.flexDirection = "column"
-                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].innerHTML += `{legend_html}`;
-                                          clearInterval(checkExist);
-                                          executed = true;
-                                       }}
-                                    }}, 100);
-                        }}
-                    }};
-                }})();
-        oneTimeExecution()
-        </script>
-      """
-   
-
-    css = """
-
-    <style type='text/css'>
-      .maplegend {
-        z-index:9999;
-        float:right;
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 5px;
-        border: 2px solid #bbb;
-        padding: 10px;
-        font-size:12px;
-        positon: relative;
-      }
-      .maplegend .legend-title {
-        text-align: left;
-        margin-bottom: 5px;
-        font-weight: bold;
-        font-size: 90%;
-        }
-      .maplegend .legend-scale ul {
-        margin: 0;
-        margin-bottom: 5px;
-        padding: 0;
-        float: left;
-        list-style: none;
-        }
-      .maplegend .legend-scale ul li {
-        font-size: 80%;
-        list-style: none;
-        margin-left: 0;
-        line-height: 18px;
-        margin-bottom: 2px;
-        }
-      .maplegend ul.legend-labels li span {
-        display: block;
-        float: left;
-        height: 16px;
-        width: 30px;
-        margin-right: 5px;
-        margin-left: 0;
-        border: 0px solid #ccc;
-        }
-      .maplegend .legend-source {
-        font-size: 80%;
-        color: #777;
-        clear: both;
-        }
-      .maplegend a {
-        color: #777;
-        }
-    </style>
-    """
-
-    folium_map.get_root().header.add_child(folium.Element(script + css))
-
-    return folium_map
 
 with tab3:
        st.subheader('Kaart van verkochte artikelen per segment')
@@ -368,109 +267,7 @@ def color_producer2(type):
         return 'orange'
     elif type > 40:
         return 'green'
-    
-    
-def add_categorical_legend(folium_map, title, colors, labels):
-    if len(colors) != len(labels):
-        raise ValueError("colors and labels must have the same length.")
 
-    color_by_label = dict(zip(labels, colors))
-    
-    legend_categories = ""     
-    for label, color in color_by_label.items():
-        legend_categories += f"<li><span style='background:{color}'></span>{label}</li>"
-        
-    legend_html = f"""
-    <div id='maplegend' class='maplegend'>
-      <div class='legend-title'>{title}</div>
-      <div class='legend-scale'>
-        <ul class='legend-labels'>
-        {legend_categories}
-        </ul>
-      </div>
-    </div>
-    """
-    script = f"""
-        <script type="text/javascript">
-        var oneTimeExecution = (function() {{
-                    var executed = false;
-                    return function() {{
-                        if (!executed) {{
-                             var checkExist = setInterval(function() {{
-                                       if ((document.getElementsByClassName('leaflet-top leaflet-right').length) || (!executed)) {{
-                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].style.display = "flex"
-                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].style.flexDirection = "column"
-                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].innerHTML += `{legend_html}`;
-                                          clearInterval(checkExist);
-                                          executed = true;
-                                       }}
-                                    }}, 100);
-                        }}
-                    }};
-                }})();
-        oneTimeExecution()
-        </script>
-      """
-   
-
-    css = """
-
-    <style type='text/css'>
-      .maplegend {
-        z-index:9999;
-        float:right;
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 5px;
-        border: 2px solid #bbb;
-        padding: 10px;
-        font-size:12px;
-        positon: relative;
-      }
-      .maplegend .legend-title {
-        text-align: left;
-        margin-bottom: 5px;
-        font-weight: bold;
-        font-size: 90%;
-        }
-      .maplegend .legend-scale ul {
-        margin: 0;
-        margin-bottom: 5px;
-        padding: 0;
-        float: left;
-        list-style: none;
-        }
-      .maplegend .legend-scale ul li {
-        font-size: 80%;
-        list-style: none;
-        margin-left: 0;
-        line-height: 18px;
-        margin-bottom: 2px;
-        }
-      .maplegend ul.legend-labels li span {
-        display: block;
-        float: left;
-        height: 16px;
-        width: 30px;
-        margin-right: 5px;
-        margin-left: 0;
-        border: 0px solid #ccc;
-        }
-      .maplegend .legend-source {
-        font-size: 80%;
-        color: #777;
-        clear: both;
-        }
-      .maplegend a {
-        color: #777;
-        }
-    </style>
-    """
-
-    folium_map.get_root().header.add_child(folium.Element(script + css))
-
-    return folium_map
-
-with tab4:
        st.subheader('Kaart van de winst ($) per superstore')
        m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
        
