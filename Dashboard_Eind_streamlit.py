@@ -221,7 +221,7 @@ with tab2:
        fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
        #titels/labels aanmaken
        fig5.update_layout(title = "2D Inspectie: Scatterplot tussen kosten en opbrengst")
-       fig6.update_xaxes(title_text="Staten US")
+       fig6.update_xaxes(title_text="Regio US")
        fig6.update_yaxes(title_text="Kosten in $")
        st.plotly_chart(fig6)
 
