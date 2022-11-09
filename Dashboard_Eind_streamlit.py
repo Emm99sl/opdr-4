@@ -142,7 +142,7 @@ st.title("Visual Analytics Eindpresentatie ")
 with st.expander('Samengevoegde dataframes'):
        st.dataframe(df)
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspectie 1', 'Geospatiale Inspectie 2', 'Model'])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspectie 1', 'Geospatiale Inspectie 2', 'Model', 'Bronverwijzing'])
                      
 with tab1:
                      st.subheader("1D Inspecties")
@@ -507,4 +507,8 @@ with tab5:
        st.text('Het getransformeerde model heeft een rsquared van 0.65.')
        st.text('De correlatie tussen sales en winst is: 0.75.')
 
-
+with tab6:
+       st.subheader('Bronnen:')
+       st.text('Ibrahim Elsayed. (2022). Sample Superstore (Versie V1) [Dataset]. https://www.kaggle.com/datasets/ibrahimelsayed182/superstore')
+       st.text('Rohit Sahoo. (2021). Superstore Sales dataset (Versie V2) [Dataset]. https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting')
+       
