@@ -1,0 +1,7 @@
+folium==0.13.0
+numpy==1.23.3
+pandas==1.4.4
+plotly==5.9.0
+statsmodels==0.13.2
+streamlit==1.14.0
+streamlit-folium==0.6.15
