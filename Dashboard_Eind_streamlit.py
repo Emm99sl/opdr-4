@@ -142,88 +142,88 @@ st.title("Visual Analytics Eindpresentatie ")
 with st.expander('Samengevoegde dataframes'):
        st.dataframe(df)
 
-
-with st.sidebar.button('1D Inspecties'):
-       with st.container():
-              st.subheader("1D Inspecties")
-              plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
-              fig0.update_xaxes(title_text = "Staten US")
-              fig0.update_yaxes(title_text = "Winst in $")
-              fig0.show() '''
-              st.code(plot_code0)
+tab1, tab2 = st.tabs(['1D Inspecties', '2D Inspecties']
+                     
+with tab1:
+       st.subheader("1D Inspecties")
+       plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
+       fig0.update_xaxes(title_text = "Staten US")
+       fig0.update_yaxes(title_text = "Winst in $")
+       fig0.show() '''
+       st.code(plot_code0)
        
-              fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
-              fig0.update_xaxes(title_text = "Tijd in jaren")
-              fig0.update_yaxes(title_text = "Winst in $")
-              st.plotly_chart(fig0)
+       fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
+       fig0.update_xaxes(title_text = "Tijd in jaren")
+       fig0.update_yaxes(title_text = "Winst in $")
+       st.plotly_chart(fig0)
 
-plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
-fig2.update_xaxes(title_text = "Categoriën Segment")
-fig2.update_yaxes(title_text = "Aantallen")
-fig2.show()'''
-st.code(plot_code2)
+       plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
+       fig2.update_xaxes(title_text = "Categoriën Segment")
+       fig2.update_yaxes(title_text = "Aantallen")
+       fig2.show()'''
+       st.code(plot_code2)
 
-fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
-fig2.update_xaxes(title_text = "Categoriën Segment")
-fig2.update_yaxes(title_text = "Aantallen")
-st.plotly_chart(fig2)
+       fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
+       fig2.update_xaxes(title_text = "Categoriën Segment")
+       fig2.update_yaxes(title_text = "Aantallen")
+       st.plotly_chart(fig2)
 
-plot_code3 = '''fig3 = go.Figure()
-fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
-fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
-fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
-fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
-fig3.update_xaxes(title = 'Aantal kosten')
-fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
+       plot_code3 = '''fig3 = go.Figure()
+       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
+       fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
+       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
+       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
+       fig3.update_xaxes(title = 'Aantal kosten')
+       fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
+       fig3.show()'''
+       st.code(plot_code3)
 
-fig3.show()'''
-st.code(plot_code3)
+       fig3 = go.Figure()
+       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
+       fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
+       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
+       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
+       fig3.update_xaxes(title = 'Aantal kosten')
+       fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
+       st.plotly_chart(fig3)
 
-fig3 = go.Figure()
-fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
-fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
-fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
-fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
-fig3.update_xaxes(title = 'Aantal kosten')
-fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
-st.plotly_chart(fig3)
+       plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
+       fig4.update_xaxes(title_text = "Winst in $")
+       fig4.update_yaxes(title_text = "Aantal")
+       fig4.show()'''
+       st.code(plot_code4)
 
-plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
-fig4.update_xaxes(title_text = "Winst in $")
-fig4.update_yaxes(title_text = "Aantal")
-fig4.show()'''
-st.code(plot_code4)
+       fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
+       fig4.update_xaxes(title_text = "Winst in $")
+       fig4.update_yaxes(title_text = "Aantal")
+       st.plotly_chart(fig4)
 
-fig4 = px.histogram(df, x = "Profit", title = "1D Inspectie: Histogram over de winst", nbins = 25)
-fig4.update_xaxes(title_text = "Winst in $")
-fig4.update_yaxes(title_text = "Aantal")
-st.plotly_chart(fig4)
+with tab2:
+       st.subheader("2D Inspecties")
 
-st.subheader("2D Inspecties")
+       fig5 = go.Figure()
+       fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
+       fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Sales'], mode = 'markers', name = "Corporate", visible = False))
+       fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Sales'], mode = 'markers', name = 'Home Office', visible = False))
 
-fig5 = go.Figure()
-fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
-fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Sales'], mode = 'markers', name = "Corporate", visible = False))
-fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Sales'], mode = 'markers', name = 'Home Office', visible = False))
-
-#dropdownmenu aanmaken
-dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
+       #dropdownmenu aanmaken
+       dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
                     {"label":"Corporate", "method":"update","args":[{"visible":[False, True, False]},{"title":"Corporate"}]},
                     {"label":"Home Office", "method":"update","args":[{"visible":[False,False,True]},{"title":"Home Office"}]}]
-#dropdownmenu toevoegen
-fig5.update_layout({"updatemenus":[{"type":"dropdown","x": 1.2,"y":0.9,"showactive":True,"active":0,"buttons": dropdown_buttons}]})
-#titels/labels aanmaken
-fig5.update_layout(title = "2D Inspectie: Scatterplot")
-fig5.update_xaxes(title_text="Discount")
-fig5.update_yaxes(title_text="Opbrengst")
-st.plotly_chart(fig5)
+       #dropdownmenu toevoegen
+       fig5.update_layout({"updatemenus":[{"type":"dropdown","x": 1.2,"y":0.9,"showactive":True,"active":0,"buttons": dropdown_buttons}]})
+       #titels/labels aanmaken
+       fig5.update_layout(title = "2D Inspectie: Scatterplot")
+       fig5.update_xaxes(title_text="Discount")
+       fig5.update_yaxes(title_text="Opbrengst")
+       st.plotly_chart(fig5)
 
-fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
-#titels/labels aanmaken
-fig5.update_layout(title = "2D Inspectie: Scatterplot tussen kosten en opbrengst")
-fig6.update_xaxes(title_text="Staten US")
-fig6.update_yaxes(title_text="Kosten in $")
-st.plotly_chart(fig6)
+       fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
+       #titels/labels aanmaken
+       fig5.update_layout(title = "2D Inspectie: Scatterplot tussen kosten en opbrengst")
+       fig6.update_xaxes(title_text="Staten US")
+       fig6.update_yaxes(title_text="Kosten in $")
+       st.plotly_chart(fig6)
 
 #KAART 1
 def color_producer(type):
