@@ -146,7 +146,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geosp
                      
 with tab1:
        st.subheader("1D Inspecties")
-       plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "Histogram: Winst per jaar")
+       plot_code0 = '''fig0 = px.histogram(df, x = "jaar_order", y = "Profit" ,title = "Histogram: Winst per jaar")
        fig0.update_xaxes(title_text = "Tijd in jaren")
        fig0.update_yaxes(title_text = "Winst in $")
        fig0.show() '''
