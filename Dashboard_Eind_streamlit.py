@@ -143,18 +143,19 @@ with st.expander('Samengevoegde dataframes'):
        st.dataframe(df)
 
 
-with st.container():
-       st.subheader("1D Inspecties")
-       plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
-       fig0.update_xaxes(title_text = "Staten US")
-       fig0.update_yaxes(title_text = "Winst in $")
-       fig0.show() '''
-       st.code(plot_code0)
+with st.sidebar.button('1D Inspecties'):
+       with st.container():
+              st.subheader("1D Inspecties")
+              plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
+              fig0.update_xaxes(title_text = "Staten US")
+              fig0.update_yaxes(title_text = "Winst in $")
+              fig0.show() '''
+              st.code(plot_code0)
        
-       fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
-       fig0.update_xaxes(title_text = "Tijd in jaren")
-       fig0.update_yaxes(title_text = "Winst in $")
-       st.plotly_chart(fig0)
+              fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
+              fig0.update_xaxes(title_text = "Tijd in jaren")
+              fig0.update_yaxes(title_text = "Winst in $")
+              st.plotly_chart(fig0)
 
 plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
 fig2.update_xaxes(title_text = "Categoriën Segment")
