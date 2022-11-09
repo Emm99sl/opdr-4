@@ -142,7 +142,7 @@ st.title("Visual Analytics Eindpresentatie ")
 with st.expander('Samengevoegde dataframes'):
        st.dataframe(df)
 
-tab1, tab2 = st.tabs(['1D Inspecties', '2D Inspecties'])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspectie 1', 'Geospatiale Inspectie 2', 'Model'])
                      
 with tab1:
                      st.subheader("1D Inspecties")
@@ -227,12 +227,12 @@ with tab2:
 
 #KAART 1
 def color_producer(type):
-    if type == 'Consumer':
-        return 'green'
-    elif type == 'Corporate':
-        return 'red'
-    elif type == 'Home Office':
-        return 'blue'
+       if type == 'Consumer':
+              return 'green'
+       elif type == 'Corporate':
+              return 'red'
+       elif type == 'Home Office':
+              return 'blue'
     
     
 def add_categorical_legend(folium_map, title, colors, labels):
@@ -334,23 +334,25 @@ def add_categorical_legend(folium_map, title, colors, labels):
     folium_map.get_root().header.add_child(folium.Element(script + css))
 
     return folium_map
-st.subheader('Kaart van verkochte artikelen per segment')
-m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
+
+with tab3:
+       st.subheader('Kaart van verkochte artikelen per segment')
+       m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
 
     
     
-for mp in df.iterrows():
-    mp_values = mp[1]
-    location = [mp_values['latitude'], mp_values['longitude']]
-    popup = (str(mp_values['City']))
-    color = color_producer(mp_values['Segment'])
-    marker = folium.CircleMarker(location = location, popup = popup, color = color)
-    marker.add_to(m)
+       for mp in df.iterrows():
+              mp_values = mp[1]
+              location = [mp_values['latitude'], mp_values['longitude']]
+              popup = (str(mp_values['City']))
+              color = color_producer(mp_values['Segment'])
+              marker = folium.CircleMarker(location = location, popup = popup, color = color)
+              marker.add_to(m)
     
-m = add_categorical_legend(m, 'Segment',
+       m = add_categorical_legend(m, 'Segment',
                              colors = ['green', 'red', 'blue'],
                            labels = ['Consumer', 'Corporate', 'Home Office'])
-folium_static(m)
+       folium_static(m)
 
 
 def color_producer2(type):
@@ -467,42 +469,42 @@ def add_categorical_legend(folium_map, title, colors, labels):
     folium_map.get_root().header.add_child(folium.Element(script + css))
 
     return folium_map
-st.subheader('Kaart van de winst ($) per superstore')
-m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
 
-    
-    
-for mp in df.iterrows():
-    mp_values = mp[1]
-    location = [mp_values['latitude'], mp_values['longitude']]
-    popup = (str(mp_values['City']))
-    color = color_producer2(mp_values['Profit'])
-    marker = folium.CircleMarker(location = location, popup = popup, color = color)
-    marker.add_to(m2)
-    
-m2 = add_categorical_legend(m2, 'Winst',
+with tab4:
+       st.subheader('Kaart van de winst ($) per superstore')
+       m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
+       
+       for mp in df.iterrows():
+              mp_values = mp[1]
+              location = [mp_values['latitude'], mp_values['longitude']]
+              popup = (str(mp_values['City']))
+              color = color_producer2(mp_values['Profit'])
+              marker = folium.CircleMarker(location = location, popup = popup, color = color)
+              marker.add_to(m2)
+              
+       m2 = add_categorical_legend(m2, 'Winst',
                              colors = ['red', 'black', 'blue', 'yellow', 'orange', 'green'],
                            labels = ['verlies (<0)', '0 <= winst <= 10', '10 < winst <= 20', '20 < winst <= 30','30 < winst <= 40', '> 40']) 
-folium_static(m2)
+       folium_static(m2)
 
-#Figuur maken van model
-fig7 = go.Figure()
+with tab5:
+       #Figuur maken van model
+       fig7 = go.Figure()
+       #Toevoegen van traces van de verschillende stappen in het model 
+       #fig.add_trace(go.Scatter(x=df["Sales"], y=df["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
+       fig7.add_trace(go.Scatter(x=df["Sales_log"], y=df["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
+       fig7.add_trace(go.Scatter(x=pred_data["Sales_log"], y=pred_data["Profit_log"], mode = 'markers', name = 'Voorspelling nu'))
+       fig7.add_trace(go.Scatter(x=pred_little["Sales_log"], y=pred_little["Profit_log"], mode = 'markers', name = 'Voorspelling als er meer verkocht wordt'))
 
-#Toevoegen van traces van de verschillende stappen in het model 
-#fig.add_trace(go.Scatter(x=df["Sales"], y=df["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
-fig7.add_trace(go.Scatter(x=df["Sales_log"], y=df["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
-fig7.add_trace(go.Scatter(x=pred_data["Sales_log"], y=pred_data["Profit_log"], mode = 'markers', name = 'Voorspelling nu'))
-fig7.add_trace(go.Scatter(x=pred_little["Sales_log"], y=pred_little["Profit_log"], mode = 'markers', name = 'Voorspelling als er meer verkocht wordt'))
-
-#Assenlabels toevoegen
-fig7.update_layout(title = 'Visualisatie van de voorspelling van de winst aan de hand van de sales')
-fig7.update_yaxes(title = 'De winst van de Superstore')
-fig7.update_xaxes(title = 'Sales')
-st.plotly_chart(fig7)
+       #Assenlabels toevoegen
+       fig7.update_layout(title = 'Visualisatie van de voorspelling van de winst aan de hand van de sales')
+       fig7.update_yaxes(title = 'De winst van de Superstore')
+       fig7.update_xaxes(title = 'Sales')
+       st.plotly_chart(fig7)
 
 
-st.text('Het originele model heeft een rsquared van 0.25.')
-st.text('Het getransformeerde model heeft een rsquared van 0.65.')
-st.text('De correlatie tussen sales en winst is: 0.75.')
+       st.text('Het originele model heeft een rsquared van 0.25.')
+       st.text('Het getransformeerde model heeft een rsquared van 0.65.')
+       st.text('De correlatie tussen sales en winst is: 0.75.')
 
 
