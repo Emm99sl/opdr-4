@@ -246,7 +246,7 @@ with tab2:
 
        fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
        #titels/labels aanmaken
-       fig5.update_layout(title = "Scatterplot kosten tegenover sales")
+       fig6.update_layout(title = "Scatterplot kosten tegenover sales")
        fig6.update_xaxes(title_text="Kosten in $")
        fig6.update_yaxes(title_text="Kosten in $")
        st.plotly_chart(fig6)
@@ -276,6 +276,10 @@ with tab3:
               marker.add_to(m)
     
        folium_static(m)
+       
+       st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
+             
+     
 
 
        def color_producer2(type):
@@ -303,6 +307,8 @@ with tab3:
               marker = folium.CircleMarker(location = location, popup = popup, color = color)
               marker.add_to(m2) 
        folium_static(m2)
+       
+       st.text("rood: verlies, zwart: 0<= winst <=10, blauw: 10< winst <=20, geel: 20< winst <= 30, oranje: 30< winst <= 40, groen: winst > 40")
 
 with tab4:
        #Figuur maken van model
