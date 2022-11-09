@@ -163,7 +163,7 @@ with tab1:
        fig2.show()'''
        st.code(plot_code2)
 
-       fig2 = px.histogram(df, x = "Segment",title = "Aantallen per categorieën 'Segment'", color = "Segment")
+       fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
        fig2.update_xaxes(title_text = "Categoriën Segment")
        fig2.update_yaxes(title_text = "Aantallen")
        st.plotly_chart(fig2)
