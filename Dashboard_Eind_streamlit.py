@@ -218,10 +218,10 @@ fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
 fig5.update_layout(title = "2D Inspectie: Scatterplot tussen kosten en opbrengst")
 fig6.update_xaxes(title_text="Staten US")
 fig6.update_yaxes(title_text="Kosten in $")
-st.plotly_chart(fig5)
+st.plotly_chart(fig6)
 
 #KAART 1
-st.subheader('')
+
 def color_producer(type):
     if type == 'Consumer':
         return 'green'
@@ -330,7 +330,7 @@ def add_categorical_legend(folium_map, title, colors, labels):
     folium_map.get_root().header.add_child(folium.Element(script + css))
 
     return folium_map
-
+st.subheader('Kaart van verkochte artikelen per segment')
 m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
 
     
