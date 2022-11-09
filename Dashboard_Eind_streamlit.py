@@ -300,6 +300,6 @@ with tab4:
 
 with tab5:
        st.subheader('Bronnen:')
-       st.text('Ibrahim Elsayed. (2022). Sample Superstore (Versie V1) [Dataset]. https://www.kaggle.com/datasets/ibrahimelsayed182/superstore')
-       st.text('Rohit Sahoo. (2021). Superstore Sales dataset (Versie V2) [Dataset]. https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting')
+       st.text('Ibrahim Elsayed. (2022). Sample Superstore (Versie V1) [Dataset]. \nhttps://www.kaggle.com/datasets/ibrahimelsayed182/superstore')
+       st.text('Rohit Sahoo. (2021). Superstore Sales dataset (Versie V2) [Dataset]. \nhttps://www.kaggle.com/datasets/rohitsahoo/sales-forecasting')
        
