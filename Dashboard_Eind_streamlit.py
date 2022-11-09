@@ -88,15 +88,7 @@ tech = filter_df(df, 'Category', 'Technology')
 consumer = filter_df(df, 'Segment', 'Consumer')
 corporate = filter_df(df, 'Segment', 'Corporate')
 home_office = filter_df(df, 'Segment', 'Home Office')
-
-#Dataframe
-with st.expander('Samengevoegde dataframes'):
-       st.write('De samengevoegde dataframes')
-       st.dataframe(df)
               
-       
-
-
 #Outliers droppen
 df = drop_outlier(df, 'Profit')
 df = drop_outlier(df, 'Sales')
@@ -146,19 +138,23 @@ pred_little = little.assign(Profit_log = model.predict(little))
 
 
 st.title("Visual Analytics Eindpresentatie ")
+#Dataframe
+with st.expander('Samengevoegde dataframes'):
+       st.dataframe(df)
 
-st.subheader("1D Inspecties")
 
-plot_code1 = '''fig1 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
-fig1.update_xaxes(title_text = "Staten US")
-fig1.update_yaxes(title_text = "Winst in $")
-fig1.show() '''
-st.code(plot_code1)
-
-fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
-fig0.update_xaxes(title_text = "Tijd in jaren")
-fig0.update_yaxes(title_text = "Winst in $")
-st.plotly_chart(fig0)
+with st.container():
+       st.subheader("1D Inspecties")
+       plot_code0 = '''fig0 = px.histogram(df, x = "State", y = "Profit" ,title = "1D Inspectie: Histogram")
+       fig0.update_xaxes(title_text = "Staten US")
+       fig0.update_yaxes(title_text = "Winst in $")
+       fig0.show() '''
+       st.code(plot_code0)
+       
+       fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "1D Inspectie: Histogram")
+       fig0.update_xaxes(title_text = "Tijd in jaren")
+       fig0.update_yaxes(title_text = "Winst in $")
+       st.plotly_chart(fig0)
 
 plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "1D Inspectie: Histogram", color = "Segment")
 fig2.update_xaxes(title_text = "Categoriën Segment")
