@@ -459,11 +459,11 @@ def add_categorical_legend(folium_map, title, colors, labels):
         }
     </style>
     """
-st.subheader('Kaart van de winst ($) per superstore')
+
     folium_map.get_root().header.add_child(folium.Element(script + css))
 
     return folium_map
-
+st.subheader('Kaart van de winst ($) per superstore')
 m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
 
     
