@@ -142,7 +142,7 @@ st.title("Visual Analytics Eindpresentatie ")
 with st.expander('Samengevoegde dataframes'):
        st.dataframe(df)
 
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspectie 1', 'Geospatiale Inspectie 2', 'Model', 'Bronverwijzing'])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspecties', 'Model', 'Bronverwijzing'])
                      
 with tab1:
        st.subheader("1D Inspecties")
@@ -226,15 +226,16 @@ with tab2:
        st.plotly_chart(fig6)
 
 #KAART 1
-def color_producer(type):
-       if type == 'Consumer':
-              return 'green'
-       elif type == 'Corporate':
-              return 'red'
-       elif type == 'Home Office':
-              return 'blue'
-
 with tab3:
+       def color_producer(type):
+              if type == 'Consumer':
+                     return 'green'
+              elif type == 'Corporate':
+                     return 'red'
+              elif type == 'Home Office':
+                     return 'blue'
+
+
        st.subheader('Kaart van verkochte artikelen per segment')
        m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
 
@@ -254,19 +255,19 @@ with tab3:
        folium_static(m)
 
 
-def color_producer2(type):
-    if type < 0:
-        return 'red'
-    elif 0 <= type <= 10 :
-        return 'black'
-    elif 10 < type <= 20:
-        return 'blue'
-    elif 20 < type <= 30:
-        return 'yellow'
-    elif 30 < type <= 40:
-        return 'orange'
-    elif type > 40:
-        return 'green'
+       def color_producer2(type):
+              if type < 0:
+                     return 'red'
+              elif 0 <= type <= 10 :
+                     return 'black'
+              elif 10 < type <= 20:
+                     return 'blue'
+              elif 20 < type <= 30:   
+                     return 'yellow'
+              elif 30 < type <= 40:
+                     return 'orange'
+              elif type > 40:
+                     return 'green'
 
        st.subheader('Kaart van de winst ($) per superstore')
        m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
@@ -284,7 +285,7 @@ def color_producer2(type):
                            labels = ['verlies (<0)', '0 <= winst <= 10', '10 < winst <= 20', '20 < winst <= 30','30 < winst <= 40', '> 40']) 
        folium_static(m2)
 
-with tab5:
+with tab4:
        #Figuur maken van model
        fig7 = go.Figure()
        #Toevoegen van traces van de verschillende stappen in het model 
@@ -304,7 +305,7 @@ with tab5:
        st.text('Het getransformeerde model heeft een rsquared van 0.65.')
        st.text('De correlatie tussen sales en winst is: 0.75.')
 
-with tab6:
+with tab5:
        st.subheader('Bronnen:')
        st.text('Ibrahim Elsayed. (2022). Sample Superstore (Versie V1) [Dataset]. https://www.kaggle.com/datasets/ibrahimelsayed182/superstore')
        st.text('Rohit Sahoo. (2021). Superstore Sales dataset (Versie V2) [Dataset]. https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting')
