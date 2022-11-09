@@ -142,7 +142,7 @@ st.title("Visual Analytics Eindpresentatie ")
 with st.expander('Samengevoegde dataframes'):
        st.dataframe(df)
 
-tab1, tab2 = st.tabs(['1D Inspecties', '2D Inspecties']
+tab1, tab2 = st.tabs(['1D Inspecties', '2D Inspecties'])
                      
 with tab1:
                      st.subheader("1D Inspecties")
