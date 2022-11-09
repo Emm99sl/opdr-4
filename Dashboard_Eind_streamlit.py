@@ -202,8 +202,7 @@ with tab1:
        st.plotly_chart(fig4)
 
 with tab2:
-       st.subheader("2D Inspecties")
-       
+              
        st.subheader("2D Inspectie: 1")
        plot_code5 = '''fig5 = go.Figure()
        fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
