@@ -192,7 +192,7 @@ with tab1:
                      {'method': 'update', 'label':'Kantoor artikelen', 'args':[{'visible': [False, False, True]}]}]}]
        
        fig3.update_layout(title_text = 'Kosten van de superstore per categorie')
-       fig3.update_xaxes(title = 'Aantal kosten')
+       fig3.update_xaxes(title = 'Kosten')
        fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
        fig3.update_layout({'sliders':slider})
        st.plotly_chart(fig3)
