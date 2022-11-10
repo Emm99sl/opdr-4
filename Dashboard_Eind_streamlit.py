@@ -89,12 +89,12 @@ corporate = filter_df(df, 'Segment', 'Corporate')
 home_office = filter_df(df, 'Segment', 'Home Office')
               
 #Outliers droppen
-df1 = drop_outlier(df, 'Profit')
-df1 = drop_outlier(df, 'Sales')
-df1 = drop_outlier(df, 'Discount')
+df4 = drop_outlier(df, 'Profit')
+df4 = drop_outlier(df, 'Sales')
+df4 = drop_outlier(df, 'Discount')
 
 #model maken
-model_orig = ols('Profit ~ Sales', data = df1).fit()
+model_orig = ols('Profit ~ Sales', data = df4).fit()
 
 #verklarende variabelen maken
 explanatory_data_orig = pd.DataFrame({'Sales': np.arange(1, 228, 8)})
@@ -108,17 +108,17 @@ little_orig = pd.DataFrame({'Sales': np.arange(228, 600, 31)})
 pred_little_orig = little_orig.assign(Profit = model_orig.predict(little_orig))
 
 #transformeren
-df1['Sales_log'] = np.log(df1['Sales'])
-df1['Profit_log'] = np.log(df1['Profit'])
+df4['Sales_log'] = np.log(df4['Sales'])
+df4['Profit_log'] = np.log(df4['Profit'])
 
 # Droppen van de na waarde in de log (dit komt waarschijnlijk door een profit van 0)
-df1 = df1[df1['Profit_log'].notna()]
+df4 = df4[df4['Profit_log'].notna()]
 
 #droppen van de -inf waarden in de log
-df1 = df1[df1['Profit_log'] != df1['Profit_log'].min()]
+df4 = df4[df4['Profit_log'] != df4['Profit_log'].min()]
 
 #Lineair regressie model
-model = ols('Profit_log ~ Sales_log', data = df1).fit()
+model = ols('Profit_log ~ Sales_log', data = df4).fit()
 
 #verklarende variabelen maken
 explanatory_data = pd.DataFrame({'Sales_log': np.log(np.arange(1, 228, 8)), 
@@ -358,7 +358,7 @@ with tab5:
        fig7 = go.Figure()
        #Toevoegen van traces van de verschillende stappen in het model 
        #fig.add_trace(go.Scatter(x=df1["Sales"], y=df1["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
-       fig7.add_trace(go.Scatter(x=df1["Sales_log"], y=df1["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
+       fig7.add_trace(go.Scatter(x=df4["Sales_log"], y=df4["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
        fig7.add_trace(go.Scatter(x=pred_data["Sales_log"], y=pred_data["Profit_log"], mode = 'markers', name = 'Voorspelling nu'))
        fig7.add_trace(go.Scatter(x=pred_little["Sales_log"], y=pred_little["Profit_log"], mode = 'markers', name = 'Voorspelling als er meer verkocht wordt'))
 
