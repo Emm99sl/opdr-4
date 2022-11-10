@@ -181,9 +181,9 @@ with tab1:
        st.code(plot_code3)
 
        fig3 = go.Figure()
-       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 10, name = 'Techology'))
-       fig3.add_trace(go.Histogram(x = furniture['Kosten'], nbinsx = 10, name = 'Furniture'))
-       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], nbinsx = 10, name = 'Office supply'))
+       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 30, name = 'Technologie'))
+       fig3.add_trace(go.Histogram(x = furniture['Kosten'], nbinsx = 30, name = 'Meubilair'))
+       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], nbinsx = 30, name = 'Kantoor artikelen'))
        slider = [
               {'steps':[
                      {'method': 'update', 'label':'Alle categorieën ', 'args':[{'visible': [True, True, True]}]},
@@ -191,7 +191,7 @@ with tab1:
                      {'method': 'update', 'label':'Meubilair', 'args':[{'visible': [False, True, False]}]},
                      {'method': 'update', 'label':'Kantoor artikelen', 'args':[{'visible': [False, False, True]}]}]}]
        
-       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
+       fig3.update_layout(title_text = 'Kosten van de superstore per categorie')
        fig3.update_xaxes(title = 'Aantal kosten')
        fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
        fig3.update_layout({'sliders':slider})
