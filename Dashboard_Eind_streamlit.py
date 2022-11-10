@@ -159,11 +159,12 @@ with tab1:
        st.plotly_chart(fig0)
        
        st.header("1D Inspectie: 2")
-       plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
-       fig2.update_xaxes(title_text = "Categorieën Segment")
-       fig2.update_yaxes(title_text = "Aantallen")
-       fig2.show()'''
-       st.code(plot_code2)
+       with st.expander('Zie code'):
+              plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
+              fig2.update_xaxes(title_text = "Categoriën Segment")
+              fig2.update_yaxes(title_text = "Aantallen")
+              st.plotly_chart(fig2)'''
+              st.code(plot_code2)
 
        fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
        fig2.update_xaxes(title_text = "Categoriën Segment")
@@ -171,15 +172,23 @@ with tab1:
        st.plotly_chart(fig2)
        
        st.header("1D Inspectie: 3")
-       plot_code3 = '''fig3 = go.Figure()
-       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
-       fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
-       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
-       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
-       fig3.update_xaxes(title = 'Aantal keer')
-       fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
-       fig3.show()'''
-       st.code(plot_code3)
+       with st.expander('Zie code'):
+              plot_code3 = '''fig3 = go.Figure()
+              fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 30, name = 'Technologie'))
+              fig3.add_trace(go.Histogram(x = furniture['Kosten'], nbinsx = 30, name = 'Meubilair'))
+              fig3.add_trace(go.Histogram(x = off_supp['Kosten'], nbinsx = 30, name = 'Kantoor artikelen'))
+              slider = [
+                     {'steps':[
+                            {'method': 'update', 'label':'Alle categorieën ', 'args':[{'visible': [True, True, True]}]},
+                            {'method': 'update', 'label':'Technologie', 'args':[{'visible': [True, False, False]}]},
+                            {'method': 'update', 'label':'Meubilair', 'args':[{'visible': [False, True, False]}]},
+                            {'method': 'update', 'label':'Kantoor artikelen', 'args':[{'visible': [False, False, True]}]}]}]
+              fig3.update_layout(title_text = 'Kosten van de superstore per categorie')
+              fig3.update_xaxes(title = 'Kosten')
+              fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
+              fig3.update_layout({'sliders':slider})
+              st.plotly_chart(fig3)'''
+              st.code(plot_code3)
 
        fig3 = go.Figure()
        fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 30, name = 'Technologie'))
@@ -199,11 +208,12 @@ with tab1:
        st.plotly_chart(fig3)
        
        st.header("1D Inspectie: 4")
-       plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 25)
-       fig4.update_xaxes(title_text = "Winst in $")
-       fig4.update_yaxes(title_text = "Aantal Superstore")
-       fig4.show()'''
-       st.code(plot_code4)
+       with st.expander('Zie code'):
+              plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 25)
+              fig4.update_xaxes(title_text = "Winst in $")
+              fig4.update_yaxes(title_text = "Aantal Superstore")
+              fig4.show()'''
+              st.code(plot_code4)
 
        fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 25)
        fig4.update_xaxes(title_text = "Winst in $")
@@ -213,22 +223,23 @@ with tab1:
 with tab2:
               
        st.header("2D Inspectie: 1")
-       plot_code5 = '''fig5 = go.Figure()
-       fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Profit'], mode = 'markers', name = 'Consumer', visible = True))
-       fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Profit'], mode = 'markers', name = "Corporate", visible = False))
-       fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Profit'], mode = 'markers', name = 'Home Office', visible = False))
-       #dropdownmenu aanmaken
-       dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
-       {"label":"Corporate", "method":"update","args":[{"visible":[False, True, False]},{"title":"Corporate"}]},
-       {"label":"Home Office", "method":"update","args":[{"visible":[False,False,True]},{"title":"Home Office"}]}]
-       #dropdownmenu toevoegen
-       fig5.update_layout({"updatemenus":[{"type":"dropdown","x": 1.2,"y":0.9,"showactive":True,"active":0,"buttons": dropdown_buttons}]})
-       #titels/labels aanmaken
-       fig5.update_layout(title = "Scatterplot korting tegenover winst")
-       fig5.update_xaxes(title_text="Korting")
-       fig5.update_yaxes(title_text="Winst in $")
-       st.plotly_chart(fig5)'''
-       st.code(plot_code5)
+       with st.expander('Zie code'):
+              plot_code5 = '''fig5 = go.Figure()
+              fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Profit'], mode = 'markers', name = 'Consumer', visible = True))
+              fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Profit'], mode = 'markers', name = "Corporate", visible = False))
+              fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Profit'], mode = 'markers', name = 'Home Office', visible = False))
+              #dropdownmenu aanmaken
+              dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
+              {"label":"Corporate", "method":"update","args":[{"visible":[False, True, False]},{"title":"Corporate"}]},
+              {"label":"Home Office", "method":"update","args":[{"visible":[False,False,True]},{"title":"Home Office"}]}]
+              #dropdownmenu toevoegen
+              fig5.update_layout({"updatemenus":[{"type":"dropdown","x": 1.2,"y":0.9,"showactive":True,"active":0,"buttons": dropdown_buttons}]})
+              #titels/labels aanmaken
+              fig5.update_layout(title = "Scatterplot korting tegenover winst")
+              fig5.update_xaxes(title_text="Korting")
+              fig5.update_yaxes(title_text="Winst in $")
+              st.plotly_chart(fig5)'''
+              st.code(plot_code5)
 
        fig5 = go.Figure()
        fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Profit'], mode = 'markers', name = 'Consumer', visible = True))
@@ -248,13 +259,14 @@ with tab2:
        st.plotly_chart(fig5)
        
        st.header("2D Inspectie: 2")
-       plot_code6 = '''fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
-       #titels/labels aanmaken
-       fig5.update_layout(title = "Scatterplot kosten tegenover sales")
-       fig6.update_xaxes(title_text="Kosten in $")
-       fig6.update_yaxes(title_text="Kosten in $")
-       st.plotly_chart(fig6)'''
-       st.code(plot_code6)
+       with st.expander('Zie code'):
+              plot_code6 = '''fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
+              #titels/labels aanmaken
+              fig6.update_layout(title = "Scatterplot kosten tegenover sales")
+              fig6.update_xaxes(title_text="Kosten in $")
+              fig6.update_yaxes(title_text="Kosten in $")
+              st.plotly_chart(fig6)'''
+              st.code(plot_code6)
 
        fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
        #titels/labels aanmaken
@@ -356,6 +368,23 @@ with tab4:
 with tab5:
        st.header("Visualisatie model")
        st.text('De correlatie tussen opbrengst en winst is: 0.48.')
+       with st.expander('Zie code getransformeerd model'):
+              plot_code7 = '''#Lineair regressie model
+              model = ols('Profit_log ~ Sales_log', data = df4).fit()
+
+              #verklarende variabelen maken
+              explanatory_data = pd.DataFrame({'Sales_log': np.log(np.arange(1, 228, 8)), 
+                                'Sales': np.arange(1, 228, 8)})
+
+              #prediction maken van verklarende variabelen
+              pred_data = explanatory_data.assign(Profit_log = model.predict(explanatory_data))
+              pred_data['Profit'] = 10**pred_data['Profit_log']
+
+              #prediction toekomst sales maken
+              little = pd.DataFrame({'Sales_log': np.log(np.arange(228, 600, 31))})
+              pred_little = little.assign(Profit_log = model.predict(little))'''
+              st.code(plot_code7)
+              
        #Figuur maken van model
        fig7 = go.Figure()
        #Toevoegen van traces van de verschillende stappen in het model 
