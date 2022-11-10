@@ -260,7 +260,7 @@ with tab3:
        st.subheader("Kaart visualisatie: 1")
        
        st.subheader('Kaart van verkochte artikelen per segment')
-       col1, col2, col3= st.columns([10, 1, 2])
+       col1, col2 = st.columns([10, 1])
        
        with col1:
        
@@ -286,10 +286,7 @@ with tab3:
               folium_static(m)
        
        with col2:
-              st.color_picker('#00ff00', label_visibility = 'hidden')
-              
-       with col3:
-              st.write('Consumer')
+              st.color_picker('Consumer', #00ff00')
               
        st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
        
