@@ -317,7 +317,7 @@ with tab4:
                             return 'green'
 
        
-              m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
+              m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 3.4)
        
               for mp in df.iterrows():
                      mp_values = mp[1]
@@ -330,9 +330,19 @@ with tab4:
        
        with col2:
               st.color_picker('Verlies', '#ff0000', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#0000ff', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
               
        with col3:
               st.write('Verlies')
+              st.write('0<= winst <=10')
+              st.write('10< winst <=20')
+              st.write('20< winst <= 30')
+              st.write('30< winst <= 40')
+              st.write('winst > 40')
        st.text("rood: verlies, zwart: 0<= winst <=10, blauw: 10< winst <=20, geel: 20< winst <= 30, oranje: 30< winst <= 40, groen: winst > 40")
 
 with tab5:
