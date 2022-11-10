@@ -283,7 +283,7 @@ with tab3:
                      marker.add_to(m)
       
     
-              folium_static(m, witdh = 600, height = 600)
+              folium_static(m, width = 600, height = 600)
        
        with col2:
               st.color_picker('Consumer', '#00ff00')
