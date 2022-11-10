@@ -89,9 +89,10 @@ corporate = filter_df(df, 'Segment', 'Corporate')
 home_office = filter_df(df, 'Segment', 'Home Office')
               
 #Outliers droppen
-df4 = drop_outlier(df, 'Profit')
-df4 = drop_outlier(df, 'Sales')
-df4 = drop_outlier(df, 'Discount')
+df4 = df.copy()
+df4 = drop_outlier(df4, 'Profit')
+df4 = drop_outlier(df4, 'Sales')
+df4 = drop_outlier(df4, 'Discount')
 
 #model maken
 model_orig = ols('Profit ~ Sales', data = df4).fit()
