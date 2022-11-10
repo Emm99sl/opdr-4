@@ -82,6 +82,11 @@ df["jaar_order"] = df["Order Date"].dt.year
 furniture = filter_df(df, 'Category', 'Furniture')
 off_supp = filter_df(df, 'Category', 'Office Supplies')
 tech = filter_df(df, 'Category', 'Technology')
+
+#dataframe van de verschillende segmenten:
+consumer = filter_df(df, 'Segment', 'Consumer')
+corporate = filter_df(df, 'Segment', 'Corporate')
+home_office = filter_df(df, 'Segment', 'Home Office')
               
 #Outliers droppen
 df1 = drop_outlier(df, 'Profit')
