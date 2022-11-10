@@ -260,7 +260,7 @@ with tab3:
        st.subheader("Kaart visualisatie: 1")
        
        st.subheader('Kaart van verkochte artikelen per segment')
-       col1, col2, col3 = st.columns([10, 1, 1])
+       col1, col2, col3 = st.columns([10, 1, 3])
        
        with col1:
        
@@ -283,7 +283,7 @@ with tab3:
                      marker.add_to(m)
       
     
-              folium_static(m, width = 600, height = 500)
+              folium_static(m, width = 500, height = 400)
        
        with col2:
               st.color_picker('Consumer', '#00ff00', label_visibility = 'collapsed')
