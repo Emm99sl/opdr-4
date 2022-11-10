@@ -142,7 +142,7 @@ st.title("Visual Analytics Eindpresentatie ")
 with st.expander('Samengevoegde dataframes'):
        st.dataframe(df)
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspecties', 'Model', 'Bronverwijzing'])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspectie 1', 'Geospatiale Inspectie 2', 'Model', 'Bronverwijzing'])
                      
 with tab1:
        st.subheader("1D Inspectie: 1")
@@ -296,9 +296,11 @@ with tab3:
               st.write('Corporate')
               st.write('Home Office')
           
+with tab4:
+       
        st.header("Kaart visualisatie: 2")
        st.subheader('Kaart van de winst ($) per superstore')
-       
+       col1, col2, col3 = st.columns([10, 1, 4])
        with col1:
               def color_producer2(type):
                      if type < 0:
@@ -333,7 +335,7 @@ with tab3:
               st.write('Verlies')
        st.text("rood: verlies, zwart: 0<= winst <=10, blauw: 10< winst <=20, geel: 20< winst <= 30, oranje: 30< winst <= 40, groen: winst > 40")
 
-with tab4:
+with tab5:
        st.subheader("Visualisatie model")
        #Figuur maken van model
        fig7 = go.Figure()
@@ -354,7 +356,7 @@ with tab4:
        st.text('Het getransformeerde model heeft een rsquared van 0.65.')
        st.text('De correlatie tussen sales en winst is: 0.75.')
 
-with tab5:
+with tab6:
        st.subheader('Bronnen:')
        st.text('Ibrahim Elsayed. (2022). Sample Superstore (Versie V1) [Dataset]. \nhttps://www.kaggle.com/datasets/ibrahimelsayed182/superstore')
        st.text('Rohit Sahoo. (2021). Superstore Sales dataset (Versie V2) [Dataset]. \nhttps://www.kaggle.com/datasets/rohitsahoo/sales-forecasting')
