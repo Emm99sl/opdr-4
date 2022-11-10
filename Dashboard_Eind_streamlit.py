@@ -209,13 +209,13 @@ with tab1:
        
        st.header("1D Inspectie: 4")
        with st.expander('Zie code'):
-              plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 75)
+              plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 150)
        fig4.update_xaxes(title_text = "Winst in $")
        fig4.update_yaxes(title_text = "Aantal Superstores")
        st.plotly_chart(fig4)'''
               st.code(plot_code4)
 
-       fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 75)
+       fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 150)
        fig4.update_xaxes(title_text = "Winst in $")
        fig4.update_yaxes(title_text = "Aantal Superstores")
        st.plotly_chart(fig4)
