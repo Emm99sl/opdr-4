@@ -205,9 +205,9 @@ with tab2:
               
        st.subheader("2D Inspectie: 1")
        plot_code5 = '''fig5 = go.Figure()
-       fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
-       fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Sales'], mode = 'markers', name = "Corporate", visible = False))
-       fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Sales'], mode = 'markers', name = 'Home Office', visible = False))
+       fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Profit'], mode = 'markers', name = 'Consumer', visible = True))
+       fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Profit'], mode = 'markers', name = "Corporate", visible = False))
+       fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Profit'], mode = 'markers', name = 'Home Office', visible = False))
 
        #dropdownmenu aanmaken
        dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
