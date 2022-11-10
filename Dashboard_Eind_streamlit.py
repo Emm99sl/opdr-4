@@ -217,7 +217,7 @@ with tab1:
 
        fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 25)
        fig4.update_xaxes(title_text = "Winst in $")
-       fig4.update_yaxes(title_text = "Aantal Superstore")
+       fig4.update_yaxes(title_text = "Aantal Superstores")
        st.plotly_chart(fig4)
 
 with tab2:
@@ -262,17 +262,17 @@ with tab2:
        with st.expander('Zie code'):
               plot_code6 = '''fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
               #titels/labels aanmaken
-              fig6.update_layout(title = "Scatterplot kosten tegenover sales")
+              fig6.update_layout(title = "Scatterplot kosten tegenover de opbrengst")
               fig6.update_xaxes(title_text="Kosten in $")
-              fig6.update_yaxes(title_text="Kosten in $")
+              fig6.update_yaxes(title_text="Opbrengst in $")
               st.plotly_chart(fig6)'''
               st.code(plot_code6)
 
        fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
        #titels/labels aanmaken
-       fig6.update_layout(title = "Scatterplot kosten tegenover sales")
+       fig6.update_layout(title = "Scatterplot kosten tegenover de opbrengst")
        fig6.update_xaxes(title_text="Kosten in $")
-       fig6.update_yaxes(title_text="Kosten in $")
+       fig6.update_yaxes(title_text="Opbrengst in $")
        st.plotly_chart(fig6)
 
 #KAART 1
