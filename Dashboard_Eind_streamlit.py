@@ -283,7 +283,7 @@ with tab3:
                      marker.add_to(m)
       
     
-              folium_static(m, width = 500, height = 400)
+              folium_static(m, width = 500, height = 350)
        
        with col2:
               st.color_picker('Consumer', '#346934', label_visibility = 'collapsed')
