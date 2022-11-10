@@ -357,7 +357,7 @@ with tab5:
        #Figuur maken van model
        fig7 = go.Figure()
        #Toevoegen van traces van de verschillende stappen in het model 
-       #fig.add_trace(go.Scatter(x=df1["Sales"], y=df1["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
+       #fig.add_trace(go.Scatter(x=df4["Sales"], y=df4["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
        fig7.add_trace(go.Scatter(x=df4["Sales_log"], y=df4["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
        fig7.add_trace(go.Scatter(x=pred_data["Sales_log"], y=pred_data["Profit_log"], mode = 'markers', name = 'Voorspelling nu'))
        fig7.add_trace(go.Scatter(x=pred_little["Sales_log"], y=pred_little["Profit_log"], mode = 'markers', name = 'Voorspelling als er meer verkocht wordt'))
