@@ -272,7 +272,7 @@ with tab3:
                      elif type == 'Home Office':
                             return 'blue'
         
-              m = folium.Map(location = [37.09024, -95.712891], zoom_start = 3.5)
+              m = folium.Map(location = [37.09024, -95.712891], zoom_start = 3.4)
 
               for mp in df.iterrows():
                      mp_values = mp[1]
@@ -287,10 +287,14 @@ with tab3:
        
        with col2:
               st.color_picker('Consumer', '#00ff00', label_visibility = 'collapsed')
+              st.color_picker('Corporate', '#ff0000', label_visibility = 'collapsed')
+              st.color_picker('Home Office', '#0000ff', label_visibility = 'collapsed')
               
        st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
        with col3:
               st.write('Consumer')
+              st.write('Corporate')
+              st.write('Home Office')
           
        st.subheader("Kaart visualisatie: 2")
 
