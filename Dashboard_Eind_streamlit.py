@@ -148,9 +148,9 @@ with tab1:
        st.header("1D Inspectie: 1")
        with st.expander('Zie code'):
               plot_code0 = '''fig0 = px.histogram(df, x = "jaar_order", y = "Profit" ,title = "Histogram: Winst per jaar")
-              fig0.update_xaxes(title_text = "Tijd in jaren")
-              fig0.update_yaxes(title_text = "Winst in $")
-              fig0.show() '''
+       fig0.update_xaxes(title_text = "Tijd in jaren")
+       fig0.update_yaxes(title_text = "Winst in $")
+       fig0.show() '''
               st.code(plot_code0)
        
        fig0 = px.bar(df, x = "jaar_order", y = "Profit", title= "Histogram: Winst per jaar")
@@ -161,9 +161,9 @@ with tab1:
        st.header("1D Inspectie: 2")
        with st.expander('Zie code'):
               plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
-              fig2.update_xaxes(title_text = "Categoriën Segment")
-              fig2.update_yaxes(title_text = "Aantallen")
-              st.plotly_chart(fig2)'''
+       fig2.update_xaxes(title_text = "Categoriën Segment")
+       fig2.update_yaxes(title_text = "Aantallen")
+       st.plotly_chart(fig2)'''
               st.code(plot_code2)
 
        fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
