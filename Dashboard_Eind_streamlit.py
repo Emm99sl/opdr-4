@@ -90,12 +90,12 @@ corporate = filter_df(df, 'Segment', 'Corporate')
 home_office = filter_df(df, 'Segment', 'Home Office')
               
 #Outliers droppen
-df = drop_outlier(df, 'Profit')
-df = drop_outlier(df, 'Sales')
-df = drop_outlier(df, 'Discount')
+df1 = drop_outlier(df, 'Profit')
+df1 = drop_outlier(df, 'Sales')
+df1 = drop_outlier(df, 'Discount')
 
 #model maken
-model_orig = ols('Profit ~ Sales', data = df).fit()
+model_orig = ols('Profit ~ Sales', data = df1).fit()
 
 #verklarende variabelen maken
 explanatory_data_orig = pd.DataFrame({'Sales': np.arange(1, 228, 8)})
@@ -109,17 +109,17 @@ little_orig = pd.DataFrame({'Sales': np.arange(228, 600, 31)})
 pred_little_orig = little_orig.assign(Profit = model_orig.predict(little_orig))
 
 #transformeren
-df['Sales_log'] = np.log(df['Sales'])
-df['Profit_log'] = np.log(df['Profit'])
+df1['Sales_log'] = np.log(df1['Sales'])
+df1['Profit_log'] = np.log(df1['Profit'])
 
 # Droppen van de na waarde in de log (dit komt waarschijnlijk door een profit van 0)
-df = df[df['Profit_log'].notna()]
+df1 = df1[df1['Profit_log'].notna()]
 
 #droppen van de -inf waarden in de log
-df = df[df['Profit_log'] != df['Profit_log'].min()]
+df1 = df1[df1['Profit_log'] != df1['Profit_log'].min()]
 
 #Lineair regressie model
-model = ols('Profit_log ~ Sales_log', data = df).fit()
+model = ols('Profit_log ~ Sales_log', data = df1).fit()
 
 #verklarende variabelen maken
 explanatory_data = pd.DataFrame({'Sales_log': np.log(np.arange(1, 228, 8)), 
@@ -257,7 +257,7 @@ with tab2:
 
 #KAART 1
 with tab3:
-       st.subheader("Kaart visualisatie: 1")
+       st.header("Kaart visualisatie: 1")
        
        st.subheader('Kaart van verkochte artikelen per segment')
        col1, col2, col3 = st.columns([10, 1, 3])
@@ -343,15 +343,15 @@ with tab4:
               st.write('20< winst <= 30')
               st.write('30< winst <= 40')
               st.write('winst > 40')
-       st.text("rood: verlies, zwart: 0<= winst <=10, blauw: 10< winst <=20, geel: 20< winst <= 30, oranje: 30< winst <= 40, groen: winst > 40")
+     
 
 with tab5:
-       st.subheader("Visualisatie model")
+       st.header("Visualisatie model")
        #Figuur maken van model
        fig7 = go.Figure()
        #Toevoegen van traces van de verschillende stappen in het model 
-       #fig.add_trace(go.Scatter(x=df["Sales"], y=df["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
-       fig7.add_trace(go.Scatter(x=df["Sales_log"], y=df["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
+       #fig.add_trace(go.Scatter(x=df1["Sales"], y=df1["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
+       fig7.add_trace(go.Scatter(x=df1["Sales_log"], y=df1["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
        fig7.add_trace(go.Scatter(x=pred_data["Sales_log"], y=pred_data["Profit_log"], mode = 'markers', name = 'Voorspelling nu'))
        fig7.add_trace(go.Scatter(x=pred_little["Sales_log"], y=pred_little["Profit_log"], mode = 'markers', name = 'Voorspelling als er meer verkocht wordt'))
 
