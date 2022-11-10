@@ -258,7 +258,7 @@ with tab2:
 #KAART 1
 with tab3:
        st.subheader("Kaart visualisatie: 1")
-       col1, col2 = st.columns(2)
+       col1, col2, col3= st.columns([3, 1, 1])
        
        with col1:
        
@@ -288,9 +288,10 @@ with tab3:
               folium_static(m)
        
        with col2:
-              color = st.color_picker('#00FF00', 'Consumer')
+              color = st.color_picker('#00FF00', label_visibility = 'hidden')
               
-                     
+       with col3:
+              st.write('Consumer')
        st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
        
           
