@@ -369,10 +369,10 @@ with tab5:
        fig7.update_xaxes(title = 'Sales')
        st.plotly_chart(fig7)
 
-
+       st.text('De correlatie tussen opbrengst en winst is: 0.48.')
        st.text('Het originele model heeft een rsquared van 0.25.')
        st.text('Het getransformeerde model heeft een rsquared van 0.65.')
-       st.text('De correlatie tussen sales en winst is: 0.75.')
+       
 
 with tab6:
        st.subheader('Bronnen:')
