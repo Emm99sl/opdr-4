@@ -186,10 +186,10 @@ with tab1:
        fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
        slider = [
               {'steps':[
-                     {'method': 'update', 'label':'Kosten histogram per categorie', 'args':[{'visible': [True, True, True]}]},
-                     {'method': 'update', 'label':'Kosten technologie', 'args':[{'visible': [True, False, False]}]},
-                     {'method': 'update', 'label':'Kosten meubilair', 'args':[{'visible': [False, True, False]}]},
-                     {'method': 'update', 'label':'Kosten kantoor artikelen', 'args':[{'visible': [False, False, True]}]}]}]
+                     {'method': 'update', 'label':'Alle categorieën ', 'args':[{'visible': [True, True, True]}]},
+                     {'method': 'update', 'label':'Technologie', 'args':[{'visible': [True, False, False]}]},
+                     {'method': 'update', 'label':'Meubilair', 'args':[{'visible': [False, True, False]}]},
+                     {'method': 'update', 'label':'Kantoor artikelen', 'args':[{'visible': [False, False, True]}]}]}]
        
        fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
        fig3.update_xaxes(title = 'Aantal kosten')
