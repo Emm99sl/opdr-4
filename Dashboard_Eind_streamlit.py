@@ -286,7 +286,7 @@ with tab3:
               folium_static(m)
        
        with col2:
-              st.color_picker('Consumer', #00ff00')
+              st.color_picker('Consumer', '#00ff00')
               
        st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
        
