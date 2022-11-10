@@ -300,8 +300,8 @@ with tab4:
        
        st.header("Kaart visualisatie: 2")
        st.subheader('Kaart van de winst ($) per superstore')
-       col1, col2, col3 = st.columns([10, 1, 4])
-       with col1:
+       col4, col5, col6 = st.columns([10, 1, 4])
+       with col4:
               def color_producer2(type):
                      if type < 0:
                             return 'red'
@@ -326,9 +326,9 @@ with tab4:
                      color = color_producer2(mp_values['Profit'])
                      marker = folium.CircleMarker(location = location, popup = popup, color = color)
                      marker.add_to(m2) 
-              folium_static(m2)
+              folium_static(m2, width = 400, height = 500)
        
-       with col2:
+       with col5:
               st.color_picker('Verlies', '#ff0000', label_visibility = 'collapsed')
               st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
               st.color_picker('Verlies', '#0000ff', label_visibility = 'collapsed')
@@ -336,7 +336,7 @@ with tab4:
               st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
               st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
               
-       with col3:
+       with col6:
               st.write('Verlies')
               st.write('0<= winst <=10')
               st.write('10< winst <=20')
