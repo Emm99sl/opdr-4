@@ -326,7 +326,7 @@ with tab4:
                      color = color_producer2(mp_values['Profit'])
                      marker = folium.CircleMarker(location = location, popup = popup, color = color)
                      marker.add_to(m2) 
-              folium_static(m2, width = 500, height = 350)
+              folium_static(m2, width = 450, height = 350)
        
        with col5:
               st.color_picker('Verlies', '#ff0000', label_visibility = 'collapsed')
