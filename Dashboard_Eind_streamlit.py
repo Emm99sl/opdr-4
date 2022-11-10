@@ -190,9 +190,10 @@ with tab1:
                      {'method': 'update', 'label':'Kosten meubilair', 'args':[{'visible': [False, True, False]}]},
                      {'method': 'update', 'label':'Kosten kantoor artikelen', 'args':[{'visible': [False, False, True]}]}]}]
        
-       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie', {'sliders':slider})
+       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
        fig3.update_xaxes(title = 'Aantal kosten')
        fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
+       fig3.update_layout({'sliders':slider})
        st.plotly_chart(fig3)
        
        st.subheader("1D Inspectie: 4")
