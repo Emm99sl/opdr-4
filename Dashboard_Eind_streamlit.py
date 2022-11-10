@@ -258,31 +258,41 @@ with tab2:
 #KAART 1
 with tab3:
        st.subheader("Kaart visualisatie: 1")
-       def color_producer(type):
-              if type == 'Consumer':
-                     return 'green'
-              elif type == 'Corporate':
-                     return 'red'
-              elif type == 'Home Office':
-                     return 'blue'
+       col1, col2 = st.columns(2)
+       
+       with col1:
+       
+              def color_producer(type):
+                     if type == 'Consumer':
+                            return 'green'
+                     elif type == 'Corporate':
+                            return 'red'
+                     elif type == 'Home Office':
+                            return 'blue'
         
 
-       st.subheader('Kaart van verkochte artikelen per segment')
-       m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
+              st.subheader('Kaart van verkochte artikelen per segment')
+              m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
 
     
     
-       for mp in df.iterrows():
-              mp_values = mp[1]
-              location = [mp_values['latitude'], mp_values['longitude']]
-              popup = (str(mp_values['City']))
-              color = color_producer(mp_values['Segment'])
-              marker = folium.CircleMarker(location = location, popup = popup, color = color)
-              marker.add_to(m)
+              for mp in df.iterrows():
+                     mp_values = mp[1]
+                     location = [mp_values['latitude'], mp_values['longitude']]
+                     popup = (str(mp_values['City']))
+                     color = color_producer(mp_values['Segment'])
+                     marker = folium.CircleMarker(location = location, popup = popup, color = color)
+                     marker.add_to(m)
       
     
-       folium_static(m)
+              folium_static(m)
        
+       with col2:
+              col3, col4 = st.columns(2)
+              with col3:
+                     color = st.color_picker('#00FF00')
+              with col4:
+                     st.write('Consumer')
        st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
        
           
