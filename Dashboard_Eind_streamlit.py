@@ -181,9 +181,9 @@ with tab1:
        st.code(plot_code3)
 
        fig3 = go.Figure()
-       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
-       fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
-       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
+       fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 10, name = 'Techology'))
+       fig3.add_trace(go.Histogram(x = furniture['Kosten'], nbinsx = 10, name = 'Furniture'))
+       fig3.add_trace(go.Histogram(x = off_supp['Kosten'], nbinsx = 10, name = 'Office supply'))
        slider = [
               {'steps':[
                      {'method': 'update', 'label':'Alle categorieën ', 'args':[{'visible': [True, True, True]}]},
