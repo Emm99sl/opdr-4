@@ -145,7 +145,7 @@ with st.expander('Samengevoegde dataframes'):
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['1D Inspecties', '2D Inspecties', 'Geospatiale Inspectie 1', 'Geospatiale Inspectie 2', 'Model', 'Bronverwijzing'])
                      
 with tab1:
-       st.subheader("1D Inspectie: 1")
+       st.header("1D Inspectie: 1")
        plot_code0 = '''fig0 = px.histogram(df, x = "jaar_order", y = "Profit" ,title = "Histogram: Winst per jaar")
        fig0.update_xaxes(title_text = "Tijd in jaren")
        fig0.update_yaxes(title_text = "Winst in $")
@@ -157,7 +157,7 @@ with tab1:
        fig0.update_yaxes(title_text = "Winst in $")
        st.plotly_chart(fig0)
        
-       st.subheader("1D Inspectie: 2")
+       st.header("1D Inspectie: 2")
        plot_code2 = '''fig2 = px.histogram(df, x = "Segment",title = "Histogram: Aantallen per categorieën 'Segment'", color = "Segment")
        fig2.update_xaxes(title_text = "Categorieën Segment")
        fig2.update_yaxes(title_text = "Aantallen")
@@ -169,7 +169,7 @@ with tab1:
        fig2.update_yaxes(title_text = "Aantallen")
        st.plotly_chart(fig2)
        
-       st.subheader("1D Inspectie: 3")
+       st.header("1D Inspectie: 3")
        plot_code3 = '''fig3 = go.Figure()
        fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
        fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
@@ -197,7 +197,7 @@ with tab1:
        fig3.update_layout({'sliders':slider})
        st.plotly_chart(fig3)
        
-       st.subheader("1D Inspectie: 4")
+       st.header("1D Inspectie: 4")
        plot_code4 = '''fig4 = px.histogram(df, x = "Profit", title = "Histogram: Winst", nbins = 25)
        fig4.update_xaxes(title_text = "Winst in $")
        fig4.update_yaxes(title_text = "Aantal Superstore")
@@ -211,12 +211,11 @@ with tab1:
 
 with tab2:
               
-       st.subheader("2D Inspectie: 1")
+       st.header("2D Inspectie: 1")
        plot_code5 = '''fig5 = go.Figure()
        fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Profit'], mode = 'markers', name = 'Consumer', visible = True))
        fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Profit'], mode = 'markers', name = "Corporate", visible = False))
        fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Profit'], mode = 'markers', name = 'Home Office', visible = False))
-
        #dropdownmenu aanmaken
        dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
        {"label":"Corporate", "method":"update","args":[{"visible":[False, True, False]},{"title":"Corporate"}]},
@@ -247,7 +246,7 @@ with tab2:
        fig5.update_yaxes(title_text="Winst in $")
        st.plotly_chart(fig5)
        
-       st.subheader("2D Inspectie: 2")
+       st.header("2D Inspectie: 2")
        plot_code6 = '''fig6 = px.scatter(df, x = "Kosten", y = "Sales", color = "Region")
        #titels/labels aanmaken
        fig5.update_layout(title = "Scatterplot kosten tegenover sales")
@@ -362,12 +361,12 @@ with tab5:
        #fig.add_trace(go.Scatter(x=df4["Sales"], y=df4["Profit"], opacity= 0.8, mode = 'markers', name = 'Data'))
        fig7.add_trace(go.Scatter(x=df4["Sales_log"], y=df4["Profit_log"], opacity= 0.8, mode = 'markers', name = 'Getransformeerde data'))
        fig7.add_trace(go.Scatter(x=pred_data["Sales_log"], y=pred_data["Profit_log"], mode = 'markers', name = 'Voorspelling nu'))
-       fig7.add_trace(go.Scatter(x=pred_little["Sales_log"], y=pred_little["Profit_log"], mode = 'markers', name = 'Voorspelling als er meer verkocht wordt'))
+       fig7.add_trace(go.Scatter(x=pred_little["Sales_log"], y=pred_little["Profit_log"], mode = 'markers', name = 'Voorspelling als er meer opbrengst is.'))
 
        #Assenlabels toevoegen
-       fig7.update_layout(title = 'Visualisatie van de voorspelling van de winst aan de hand van de sales')
+       fig7.update_layout(title = 'Visualisatie van de voorspelling van de winst aan de hand van de opbrengst')
        fig7.update_yaxes(title = 'De winst van de Superstore')
-       fig7.update_xaxes(title = 'Sales')
+       fig7.update_xaxes(title = 'Opbrengst')
        st.plotly_chart(fig7)
        st.subheader('Het getransformeerde model heeft:')
        col1, col2 = st.columns(2)
