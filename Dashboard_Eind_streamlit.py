@@ -332,9 +332,9 @@ with tab4:
               st.color_picker('Verlies', '#ff0000', label_visibility = 'collapsed')
               st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
               st.color_picker('Verlies', '#0000ff', label_visibility = 'collapsed')
-              st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
-              st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
-              st.color_picker('Verlies', '#020202', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#EBF905', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#F9A005', label_visibility = 'collapsed')
+              st.color_picker('Verlies', '#346934', label_visibility = 'collapsed')
               
        with col6:
               st.write('Verlies')
