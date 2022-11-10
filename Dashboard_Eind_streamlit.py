@@ -355,6 +355,7 @@ with tab4:
 
 with tab5:
        st.header("Visualisatie model")
+       st.text('De correlatie tussen opbrengst en winst is: 0.48.')
        #Figuur maken van model
        fig7 = go.Figure()
        #Toevoegen van traces van de verschillende stappen in het model 
@@ -369,7 +370,7 @@ with tab5:
        fig7.update_xaxes(title = 'Sales')
        st.plotly_chart(fig7)
 
-       st.text('De correlatie tussen opbrengst en winst is: 0.48.')
+       
        st.text('Het originele model heeft een rsquared van 0.25.')
        st.text('Het getransformeerde model heeft een rsquared van 0.65.')
        
