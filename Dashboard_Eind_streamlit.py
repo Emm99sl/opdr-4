@@ -72,7 +72,7 @@ def drop_outlier(df, kolom):
 df['Kosten'] = df['Sales'] - df['Profit']
 
 #Selecteren van de kolommen
-df = df[['Segment', 'City', 'State', 'Region', 'Category', 'Sub-Category', 'Discount', 'Profit', 'Order Date', 'Ship Date', 'Sales', 'Kosten', 'latitude', 'longitude']]
+df = df[['Segment', 'City', 'State', 'Region', 'Category', 'Sub-Category', 'Discount', 'Profit', 'Order Date', 'Sales', 'Kosten', 'latitude', 'longitude']]
 
 #Data omzetten naar datetime type
 df['Order Date'] = pd.to_datetime(df['Order Date'])
