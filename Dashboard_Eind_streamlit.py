@@ -184,7 +184,13 @@ with tab1:
        fig3.add_trace(go.Histogram(x = tech['Kosten'], nbinsx = 20, name = 'Techology'))
        fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
        fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
-       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
+       slider = [
+              {'steps':[
+                     {'method': 'update', 'label':'Kosten technologie', 'args':[{'visible': [True, False, False]}]},
+                     {'method': 'update', 'label':'Kosten meubilair', 'args':[{'visible': [False, True, False]}]},
+                     {'method': 'update', 'label':'Kosten kantoor artikelen', 'args':[{'visible': [False, False, True]}]}]}]
+       
+       fig3.update_layout(title_text = 'Kosten van de Superstore per categorie', {'sliders':slider})
        fig3.update_xaxes(title = 'Aantal kosten')
        fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
        st.plotly_chart(fig3)
