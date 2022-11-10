@@ -286,7 +286,7 @@ with tab3:
               folium_static(m, width = 500, height = 400)
        
        with col2:
-              st.color_picker('Consumer', '#00ff00', label_visibility = 'collapsed')
+              st.color_picker('Consumer', '#346934', label_visibility = 'collapsed')
               st.color_picker('Corporate', '#ff0000', label_visibility = 'collapsed')
               st.color_picker('Home Office', '#0000ff', label_visibility = 'collapsed')
               
