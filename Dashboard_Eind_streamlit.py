@@ -290,41 +290,47 @@ with tab3:
               st.color_picker('Corporate', '#ff0000', label_visibility = 'collapsed')
               st.color_picker('Home Office', '#0000ff', label_visibility = 'collapsed')
               
-       st.text("Consumer = groen, Corporate = rood, Home Office = blauw")
+
        with col3:
               st.write('Consumer')
               st.write('Corporate')
               st.write('Home Office')
           
-       st.subheader("Kaart visualisatie: 2")
-
-
-       def color_producer2(type):
-              if type < 0:
-                     return 'red'
-              elif 0 <= type <= 10 :
-                     return 'black'
-              elif 10 < type <= 20:
-                     return 'blue'
-              elif 20 < type <= 30:   
-                     return 'yellow'
-              elif 30 < type <= 40:
-                     return 'orange'
-              elif type > 40:
-                     return 'green'
-
+       st.header("Kaart visualisatie: 2")
        st.subheader('Kaart van de winst ($) per superstore')
-       m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
        
-       for mp in df.iterrows():
-              mp_values = mp[1]
-              location = [mp_values['latitude'], mp_values['longitude']]
-              popup = (str(mp_values['City']))
-              color = color_producer2(mp_values['Profit'])
-              marker = folium.CircleMarker(location = location, popup = popup, color = color)
-              marker.add_to(m2) 
-       folium_static(m2)
+       with col1:
+              def color_producer2(type):
+                     if type < 0:
+                            return 'red'
+                     elif 0 <= type <= 10 :
+                            return 'black'
+                     elif 10 < type <= 20:
+                            return 'blue'
+                     elif 20 < type <= 30:   
+                            return 'yellow'
+                     elif 30 < type <= 40:
+                            return 'orange'
+                     elif type > 40:
+                            return 'green'
+
        
+              m2 = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
+       
+              for mp in df.iterrows():
+                     mp_values = mp[1]
+                     location = [mp_values['latitude'], mp_values['longitude']]
+                     popup = (str(mp_values['City']))
+                     color = color_producer2(mp_values['Profit'])
+                     marker = folium.CircleMarker(location = location, popup = popup, color = color)
+                     marker.add_to(m2) 
+              folium_static(m2)
+       
+       with col2:
+              st.color_picker('Verlies', '#ff0000', label_visibility = 'collapsed')
+              
+       with col3:
+              st.write('Verlies')
        st.text("rood: verlies, zwart: 0<= winst <=10, blauw: 10< winst <=20, geel: 20< winst <= 30, oranje: 30< winst <= 40, groen: winst > 40")
 
 with tab4:
