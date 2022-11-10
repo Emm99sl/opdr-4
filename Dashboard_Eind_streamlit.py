@@ -272,7 +272,7 @@ with tab3:
                      elif type == 'Home Office':
                             return 'blue'
         
-              m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.2)
+              m = folium.Map(location = [37.09024, -95.712891], zoom_start = 3)
 
               for mp in df.iterrows():
                      mp_values = mp[1]
