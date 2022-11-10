@@ -369,16 +369,11 @@ with tab5:
        fig7.update_yaxes(title = 'De winst van de Superstore')
        fig7.update_xaxes(title = 'Sales')
        st.plotly_chart(fig7)
-       st.subheader('Getransformeerde model:')
+       st.subheader('Het getransformeerde model heeft:')
        col1, col2 = st.columns(2)
        col1.metric('RSE', '0.67', '-12.97', delta_color = 'inverse')
        col2.metric('R squared', '0.25', '0.4')
        
-       st.text('De residuen van het originele model zijn: 13.64.')
-       st.text('Het originele model heeft een rsquared van 0.25.')
-       st.subheader('Getransformeerde model:')
-       st.text('De residuen van het getransformeerde model zijn: 0.67.')
-       st.text('Het getransformeerde model heeft een rsquared van 0.65.')
        
 
 with tab6:
