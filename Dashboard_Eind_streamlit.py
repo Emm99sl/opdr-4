@@ -175,7 +175,7 @@ with tab1:
        fig3.add_trace(go.Histogram(x = furniture['Kosten'], name = 'Furniture'))
        fig3.add_trace(go.Histogram(x = off_supp['Kosten'], name = 'Office supply'))
        fig3.update_layout(title_text = 'Kosten van de Superstore per categorie')
-       fig3.update_xaxes(title = 'Aantal kosten')
+       fig3.update_xaxes(title = 'Aantal keer')
        fig3.update_yaxes(title = 'Aantal keer in dezelfde kosten categorie')
        fig3.show()'''
        st.code(plot_code3)
@@ -223,9 +223,9 @@ with tab2:
        st.code(plot_code5)
 
        fig5 = go.Figure()
-       fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Sales'], mode = 'markers', name = 'Consumer', visible = True))
-       fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Sales'], mode = 'markers', name = "Corporate", visible = False))
-       fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Sales'], mode = 'markers', name = 'Home Office', visible = False))
+       fig5.add_traces(go.Scatter(x = consumer['Discount'], y = consumer['Profit'], mode = 'markers', name = 'Consumer', visible = True))
+       fig5.add_traces(go.Scatter(x = corporate['Discount'], y = corporate['Profit'], mode = 'markers', name = "Corporate", visible = False))
+       fig5.add_traces(go.Scatter(x = home_office['Discount'], y = home_office['Profit'], mode = 'markers', name = 'Home Office', visible = False))
 
        #dropdownmenu aanmaken
        dropdown_buttons = [{"label":"Consumer", "method":"update","args":[{"visible":[True, False, False]},{"title":"Consumer"}]}, 
