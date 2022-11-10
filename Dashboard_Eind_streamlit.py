@@ -260,7 +260,7 @@ with tab3:
        st.subheader("Kaart visualisatie: 1")
        
        st.subheader('Kaart van verkochte artikelen per segment')
-       col1, col2, col3= st.columns([4, 1, 2])
+       col1, col2, col3= st.columns([10, 1, 2])
        
        with col1:
        
