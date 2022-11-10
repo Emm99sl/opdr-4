@@ -259,7 +259,7 @@ with tab2:
 with tab3:
        st.subheader("Kaart visualisatie: 1")
        
-       
+       st.subheader('Kaart van verkochte artikelen per segment')
        col1, col2, col3= st.columns([4, 1, 2])
        
        with col1:
@@ -272,12 +272,8 @@ with tab3:
                      elif type == 'Home Office':
                             return 'blue'
         
-
-              st.subheader('Kaart van verkochte artikelen per segment')
               m = folium.Map(location = [37.09024, -95.712891], zoom_start = 4.4)
 
-    
-    
               for mp in df.iterrows():
                      mp_values = mp[1]
                      location = [mp_values['latitude'], mp_values['longitude']]
@@ -290,7 +286,7 @@ with tab3:
               folium_static(m)
        
        with col2:
-              st.color_picker('#00FF00', label_visibility = 'hidden')
+              st.color_picker('#00ff00', label_visibility = 'hidden')
               
        with col3:
               st.write('Consumer')
